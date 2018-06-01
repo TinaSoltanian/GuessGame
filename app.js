@@ -18,9 +18,10 @@ maxSpan.textContent = max;
 
 userButton.addEventListener('click', function(e){
     let guess = parseInt(userInput.value);
-console.log(max);
-    if (isNaN(guess) || guess > max || guess < min){
+
+     if (isNaN(guess) || guess > max || guess < min){
         setMessage(`Please enter a number between ${min} and ${max}`,'red');
+        return;
     }
 
     if (guess === winningNum){
@@ -29,9 +30,11 @@ console.log(max);
         setMessage(`${winningNum} is correct, YOU WON!`,'green');
     }
     else{
-        if (guessLeft > 0){
+        if (guessLeft >0    ){
             guessLeft--;
-            setMessage(`${guessLeft} tries left`,'green');
+            userInput.style.borderColor = 'red';
+            userInput.value = '';
+            setMessage(`${guess} is incorrect, ${guessLeft} guesses left`,'red');
         }
         else{
             userInput.disabled = true;
