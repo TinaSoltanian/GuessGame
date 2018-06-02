@@ -1,7 +1,7 @@
 // initial values
 
 let min = 1;
-let  max = 8;
+let  max = 10;
 let winningNum = getRandomNum(min, max);
 let guessLeft = 3;
 
